@@ -1,123 +1,354 @@
 <!DOCTYPE html>
 <html lang="ka">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global Education Network | Oxford Representative</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        :root { --oxford: #002147; --dark-red: #B22222; }
-        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        .serif { font-family: 'Playfair Display', serif; }
-        .bg-oxford { background-color: var(--oxford); }
-        .text-oxford { color: var(--oxford); }
-        .bg-red-dark { background-color: var(--dark-red); }
-        .status-pulse { animation: pulse 2s infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Education Network</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--blue:#0a1f44;
+--red:#7a0f1b;
+--white:#ffffff;
+--gray:#f5f5f5;
+}
+
+body{
+margin:0;
+font-family:'Inter', sans-serif;
+background:var(--white);
+color:#111;
+}
+
+h1,h2,h3{
+font-family:'Playfair Display', serif;
+}
+
+header{
+background:var(--blue);
+color:white;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+margin:0 10px;
+text-decoration:none;
+font-size:14px;
+cursor:pointer;
+}
+
+.hero{
+position:relative;
+height:80vh;
+overflow:hidden;
+}
+
+.slide{
+position:absolute;
+width:100%;
+height:100%;
+background-size:cover;
+background-position:center;
+opacity:0;
+transition:0.8s;
+}
+
+.slide.active{
+opacity:1;
+}
+
+.hero-content{
+position:absolute;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+text-align:center;
+color:white;
+background:rgba(0,0,0,0.4);
+padding:30px;
+}
+
+.section{
+padding:60px 40px;
+display:none;
+}
+
+.section.active{
+display:block;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+border:1px solid #ddd;
+padding:20px;
+}
+
+.button{
+background:var(--red);
+color:white;
+padding:10px 20px;
+border:none;
+cursor:pointer;
+margin-top:10px;
+}
+
+.status{
+margin-top:10px;
+font-size:12px;
+}
+
+.available{
+color:green;
+}
+
+.full{
+color:gray;
+}
+
+input, select{
+width:100%;
+padding:10px;
+margin:5px 0;
+border:1px solid #ccc;
+}
+
+footer{
+background:var(--blue);
+color:white;
+padding:40px;
+text-align:center;
+margin-top:50px;
+}
+</style>
 </head>
-<body class="bg-white">
 
-    <header class="fixed w-full z-50 bg-white shadow-sm py-4 px-8 flex justify-between items-center">
-        <div class="flex items-center gap-10">
-            <div class="text-2xl font-bold text-oxford tracking-tighter italic uppercase">GEN</div>
-            <nav class="hidden xl:flex gap-6 text-[11px] font-bold uppercase tracking-widest text-gray-600">
-                <a href="#" class="hover:text-red-700 transition">მთავარი</a>
-                <a href="#news" class="hover:text-red-700 transition">სიახლეები</a>
-                <a href="#programs" class="hover:text-red-700 transition">პროგრამები</a>
-                <a href="#courses" class="hover:text-red-700 transition">კურსები</a>
-                <a href="#admission" class="hover:text-red-700 transition">ჩაბარება</a>
-                <a href="#about" class="hover:text-red-700 transition">ჩვენ შესახებ</a>
-            </nav>
-        </div>
-        <div class="flex items-center gap-6">
-            <div class="relative cursor-pointer">
-                <span id="cart-count" class="absolute -top-2 -right-2 bg-red-dark text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">0</span>
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-oxford" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                </svg>
-            </div>
-        </div>
-    </header>
+<body>
 
-    <section class="relative h-[80vh] bg-oxford flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(rgba(0,33,71,0.6), rgba(0,33,71,0.6)), url('https://drive.google.com/uc?export=view&id=1rfocCbkDUJaPCaCmFZd8lUzdtlgnuPxq')">
-        <div class="text-center text-white p-10">
-            <h1 class="serif text-5xl md:text-7xl mb-4 uppercase">გლობალური განათლების ქსელი</h1>
-            <p class="text-lg md:text-xl font-light tracking-widest uppercase border-t border-b py-2 inline-block">ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში</p>
-        </div>
-    </section>
+<header>
+<div><b>GEN</b></div>
+<nav>
+<a onclick="showPage('home')">მთავარი</a>
+<a onclick="showPage('news')">სიახლეები</a>
+<a onclick="showPage('programs')">პროგრამები</a>
+<a onclick="showPage('courses')">კურსები</a>
+<a onclick="showPage('admission')">ჩაბარება</a>
+<a onclick="showPage('about')">ჩვენ შესახებ</a>
+<a onclick="showPage('gallery')">გალერეა</a>
+<a onclick="showPage('basket')">კალათა</a>
+</nav>
+</header>
 
-    <section id="admission" class="py-24 bg-gray-50 px-6">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10">
-            <div id="card-cons1" class="bg-white p-10 shadow-lg rounded-xl text-center transition-all duration-500 border-t-4 border-oxford">
-                <div class="flex justify-center items-center gap-2 mb-4">
-                    <span id="dot-cons1" class="w-3 h-3 bg-green-500 rounded-full status-pulse"></span>
-                    <span id="status-cons1" class="text-[10px] font-bold uppercase">Available</span>
-                </div>
-                <h3 class="serif text-2xl text-oxford mb-6 uppercase">კონსულტანტი #1</h3>
-                <button id="btn-cons1" class="bg-red-dark text-white px-6 py-2 rounded uppercase text-xs font-bold tracking-widest">Request a Call</button>
-            </div>
-            <div id="card-cons2" class="bg-white p-10 shadow-lg rounded-xl text-center transition-all duration-500 border-t-4 border-oxford">
-                <div class="flex justify-center items-center gap-2 mb-4">
-                    <span id="dot-cons2" class="w-3 h-3 bg-green-500 rounded-full status-pulse"></span>
-                    <span id="status-cons2" class="text-[10px] font-bold uppercase">Available</span>
-                </div>
-                <h3 class="serif text-2xl text-oxford mb-6 uppercase">კონსულტანტი #2</h3>
-                <button id="btn-cons2" class="bg-red-dark text-white px-6 py-2 rounded uppercase text-xs font-bold tracking-widest">Request a Call</button>
-            </div>
-            <div id="card-cons3" class="bg-white p-10 shadow-lg rounded-xl text-center transition-all duration-500 border-t-4 border-oxford">
-                <div class="flex justify-center items-center gap-2 mb-4">
-                    <span id="dot-cons3" class="w-3 h-3 bg-green-500 rounded-full status-pulse"></span>
-                    <span id="status-cons3" class="text-[10px] font-bold uppercase">Available</span>
-                </div>
-                <h3 class="serif text-2xl text-oxford mb-6 uppercase">კონსულტანტი #3</h3>
-                <button id="btn-cons3" class="bg-red-dark text-white px-6 py-2 rounded uppercase text-xs font-bold tracking-widest">Request a Call</button>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section id="home" class="section active">
+<div class="hero">
 
-    <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+<div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1');"></div>
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b');"></div>
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d');"></div>
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyAU9dbD_iaYSzUhe9uE3XGXR0aDobWIwQ0",
-            authDomain: "global-education-network-8fa82.firebaseapp.com",
-            projectId: "global-education-network-8fa82",
-            storageBucket: "global-education-network-8fa82.firebasestorage.app",
-            messagingSenderId: "103555817398",
-            appId: "1:103555817398:web:3d3480ac38b87a867d2b17"
-        };
+<div class="hero-content">
+<h1>გლობალური განათლების ქსელი</h1>
+<p>ოქსფორდის პირველი და ერთადერთი ოფიციალური წარმომადგენელი საქართველოში</p>
+<button class="button" onclick="showPage('programs')">პროგრამები</button>
+</div>
 
-        const app = initializeApp(firebaseConfig);
-        const db = getDatabase(app);
+</div>
+</section>
 
-        onValue(ref(db, 'consultants'), (snapshot) => {
-            const data = snapshot.val();
-            if(!data) return;
-            Object.keys(data).forEach(id => {
-                const isAvail = data[id].available;
-                const card = document.getElementById(`card-${id}`);
-                const btn = document.getElementById(`btn-${id}`);
-                const dot = document.getElementById(`dot-${id}`);
-                const statusText = document.getElementById(`status-${id}`);
+<!-- PROGRAMS -->
+<section id="programs" class="section">
+<h2>საერთაშორისო პროგრამები</h2>
+<div class="grid">
 
-                if(!isAvail) {
-                    card.classList.add('opacity-40', 'grayscale');
-                    btn.disabled = true;
-                    btn.innerText = "No Slots";
-                    statusText.innerText = "Busy";
-                    dot.classList.replace('bg-green-500', 'bg-gray-400');
-                } else {
-                    card.classList.remove('opacity-40', 'grayscale');
-                    btn.disabled = false;
-                    btn.innerText = "Request a Call";
-                    statusText.innerText = "Available";
-                    dot.classList.replace('bg-gray-400', 'bg-green-500');
-                }
-            });
-        });
-    </script>
+<div class="card">
+<h3>UK</h3>
+<p>სწავლა დიდ ბრიტანეთში</p>
+<button class="button" onclick="addToBasket('UK Program')">დამატება</button>
+</div>
+
+<div class="card">
+<h3>USA</h3>
+<p>სწავლა ამერიკაში</p>
+<button class="button" onclick="addToBasket('USA Program')">დამატება</button>
+</div>
+
+<div class="card">
+<h3>Europe</h3>
+<p>ევროპის უნივერსიტეტები</p>
+<button class="button" onclick="addToBasket('Europe Program')">დამატება</button>
+</div>
+
+<div class="card">
+<h3>Asia</h3>
+<p>აზიის პროგრამები</p>
+<button class="button" onclick="addToBasket('Asia Program')">დამატება</button>
+</div>
+
+</div>
+</section>
+
+<!-- COURSES -->
+<section id="courses" class="section">
+<h2>ენების კურსები</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>General English</h3>
+<p>A1 - C1 დონეები</p>
+<button class="button" onclick="openForm('General English')">რეგისტრაცია</button>
+</div>
+
+<div class="card">
+<h3>IELTS Preparation</h3>
+<p>საერთაშორისო გამოცდა</p>
+<button class="button" onclick="openForm('IELTS')">რეგისტრაცია</button>
+</div>
+
+<div class="card">
+<h3>Business English</h3>
+<p>კარიერული განვითარება</p>
+<button class="button" onclick="openForm('Business')">რეგისტრაცია</button>
+</div>
+
+</div>
+
+<div id="formBox" style="margin-top:30px;"></div>
+</section>
+
+<!-- ADMISSION -->
+<section id="admission" class="section">
+<h2>კონსულტანტები</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Consultant 1</h3>
+<div class="status available">Available</div>
+<button class="button" onclick="requestCall()">Request a Call</button>
+</div>
+
+<div class="card">
+<h3>Consultant 2</h3>
+<div class="status full">No Slots</div>
+</div>
+
+<div class="card">
+<h3>Consultant 3</h3>
+<div class="status available">Available</div>
+<button class="button" onclick="requestCall()">Request a Call</button>
+</div>
+
+</div>
+</section>
+
+<!-- BASKET -->
+<section id="basket" class="section">
+<h2>კალათა</h2>
+<ul id="basketList"></ul>
+
+<h3>შეკვეთა</h3>
+<input placeholder="სახელი">
+<input placeholder="ტელეფონი">
+<input placeholder="ელფოსტა">
+<button class="button" onclick="checkout()">გაგზავნა</button>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+<h2>ჩვენ შესახებ</h2>
+<p>ისტორია, მიღწევები და Founder-ის ბიოგრაფია.</p>
+</section>
+
+<!-- NEWS -->
+<section id="news" class="section">
+<h2>სიახლეები</h2>
+<p>ადმინიდან სამართავი ბლოგი</p>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section">
+<h2>გალერეა</h2>
+<p>Masonry სტილი (შემდგომში დაემატება)</p>
+</section>
+
+<footer>
+<p>© Global Education Network</p>
+</footer>
+
+<script>
+
+// NAVIGATION
+function showPage(id){
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+// SLIDER
+let slides=document.querySelectorAll('.slide');
+let index=0;
+setInterval(()=>{
+slides[index].classList.remove('active');
+index=(index+1)%slides.length;
+slides[index].classList.add('active');
+},4000);
+
+// BASKET
+let basket=[];
+
+function addToBasket(item){
+basket.push(item);
+renderBasket();
+}
+
+function renderBasket(){
+let list=document.getElementById('basketList');
+list.innerHTML='';
+basket.forEach(i=>{
+let li=document.createElement('li');
+li.innerText=i;
+list.appendChild(li);
+});
+}
+
+// FORM
+function openForm(course){
+document.getElementById('formBox').innerHTML=`
+<h3>${course} რეგისტრაცია</h3>
+<input placeholder="სახელი და გვარი">
+<input placeholder="ტელეფონი">
+<input placeholder="ელფოსტა">
+<button class="button" onclick="submitForm()">გაგზავნა</button>
+`;
+}
+
+function submitForm(){
+alert('გაგზავნილია');
+}
+
+// CALL REQUEST
+function requestCall(){
+alert('მოთხოვნა გაგზავნილია');
+}
+
+// CHECKOUT
+function checkout(){
+alert('შეკვეთა გაგზავნილია თქვენს მეილზე (mock)');
+}
+
+</script>
+
 </body>
 </html>
