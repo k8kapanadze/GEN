@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global Education Network</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+<div class="logo">GEN</div>
+<nav>
+<a onclick="showPage('home')">მთავარი</a>
+<a onclick="showPage('programs')">პროგრამები</a>
+<a onclick="showPage('courses')">კურსები</a>
+<a onclick="showPage('admission')">ჩაბარება</a>
+<a onclick="showPage('basket')">კალათა</a>
+</nav>
+</header>
+
+<section id="home" class="section active">
+<div class="hero">
+<div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1');"></div>
+<div class="slide" style="background-image:url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b');"></div>
+<div class="hero-content">
+<h1>გლობალური განათლების ქსელი</h1>
+<p>ოქსფორდის ოფიციალური წარმომადგენელი</p>
+</div>
+</div>
+</section>
+
+<section id="programs" class="section">
+<h2>პროგრამები</h2>
+<button onclick="addToBasket('UK')">UK დამატება</button>
+<button onclick="addToBasket('USA')">USA დამატება</button>
+</section>
+
+<section id="courses" class="section">
+<h2>კურსები</h2>
+<button onclick="openForm()">რეგისტრაცია</button>
+<div id="formBox"></div>
+</section>
+
+<section id="admission" class="section">
+<h2>კონსულტაცია</h2>
+<button onclick="requestCall()">Call</button>
+</section>
+
+<section id="basket" class="section">
+<h2>კალათა</h2>
+<ul id="basketList"></ul>
+<button onclick="checkout()">გაგზავნა</button>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
